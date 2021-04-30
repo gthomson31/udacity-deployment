@@ -9,11 +9,9 @@ jobs:
       - run:
           name: Ensure backend infrastructure exist
           command: |
-            aws cloudformation create-stack \
+            aws cloudformation deploy \
               --template-file network.yml \
-              --parameters network-parameters.json \
               --stack-name my-stack \
-              --region=eu-west-1
 workflows:
   my_workflow:
     jobs:
